@@ -27,21 +27,21 @@ public class Ship : MonoBehaviour
         speed = 0.15f;
         leftRotation = 4f;
         rightRotation = -4f;
-        health = 100f;
+        health = 90f;
         damage = 5f;
     }
 
     public void Update()
     {
-        if (health > 75)
+        if (health > 60)
         {
             spriteRenderer.sprite = fullHealth;
         }
-        if (health > 50)
+        if (health > 30 && health <= 60)
         {
             spriteRenderer.sprite = halfHealth;
         }
-        if (health > 25)
+        if (health <= 30)
         {
             spriteRenderer.sprite = lowHealth;
         }
