@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    private Animation shoot;
-    private Animation death;
     private new Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
-    public Sprite fullHealth;
-    public Sprite halfHealth;
-    public Sprite lowHealth;
+
+    [Space(10)]
+    [Header("Structure")]
+    [Space(5)]
+    public float health;
     public float speed;
     public float leftRotation;
     public float rightRotation;
-    public float health;
+    [Space(10)]
+    [Header("Damage")]
+    [Space(5)]
+    [Header("Attack Power")]
+    [Space(5)]
     public float attackDamage;
     public float attackCoolDown;
     public GameObject sideShotPrefab;
     public GameObject frontShotPrefab;
+    [Space(5)]
+    [Header("UI")]
+    [Space(5)]
+    public GameObject lifeBar;
+    public Sprite fullHealth;
+    public Sprite halfHealth;
+    public Sprite lowHealth;
+    [Space(5)]
+    [Header("VFX - Particles and Animation")]
+    [Space(5)]
+    public GameObject explosionFX;
+    public GameObject yellowFlamesFX;
+    public GameObject orangeFlamesFX;
+    public ParticleSystem debrisFX;
 
     public void Awake()
     {
@@ -30,10 +48,13 @@ public class Ship : MonoBehaviour
         health = 90f;
         attackDamage = 10f;
         attackCoolDown = 2f;
+        debrisFX.Stop();
     }
 
     public void FixedUpdate()
     {
+        lifeBar.transform.localScale = new Vector3(health/100, 0.5f, 0);
+
         if (health > 60)
         {
             spriteRenderer.sprite = fullHealth;

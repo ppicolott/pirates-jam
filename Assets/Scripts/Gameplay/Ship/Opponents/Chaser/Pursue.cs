@@ -1,16 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using static UnityEngine.GraphicsBuffer;
 
 public class Pursue : MonoBehaviour
 {
+    private Vector3 lookAtTarget;
+    private float angle;
+    private Quaternion lookTo;
     public Ship ship;
-    public Vector3 lookAtTarget;
-    public float angle;
     public float rotationModifier;
-    public Quaternion lookTo;
     public float lookSpeed;
     public float chaserAttackDamage;
 
@@ -46,13 +44,20 @@ public class Pursue : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name + " - " + collision.gameObject.GetComponent<Ship>().health);
         if (collision.gameObject.tag.Equals("Player"))
         {
             collision.gameObject.GetComponent<Ship>().health -= chaserAttackDamage;
+            collision.gameObject.GetComponent<Ship>().debrisFX.Play();
+
+            if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
+            {
+                collision.gameObject.GetComponent<Ship>().yellowFlamesFX.SetActive(true);
+                collision.gameObject.GetComponent<Ship>().orangeFlamesFX.SetActive(true);
+            }
+
             if (collision.gameObject.GetComponent<Ship>().health <= 0)
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<Ship>().explosionFX.SetActive(true);
             }
         }
     }

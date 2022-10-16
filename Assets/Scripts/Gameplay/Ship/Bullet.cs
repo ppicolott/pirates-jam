@@ -42,19 +42,37 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag.Equals("Opponent"))
         {
             collision.gameObject.GetComponent<Ship>().health -= playerAttackDamage;
+            collision.gameObject.GetComponent<Ship>().debrisFX.Play();
+
+            if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
+            {
+                collision.gameObject.GetComponent<Ship>().yellowFlamesFX.SetActive(true);
+                collision.gameObject.GetComponent<Ship>().orangeFlamesFX.SetActive(true);
+            }
+
             if (collision.gameObject.GetComponent<Ship>().health <= 0)
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<Ship>().explosionFX.SetActive(true);
             }
+
             Destroy(gameObject);
         }
         if (collision.gameObject.tag.Equals("Player"))
         {
             collision.gameObject.GetComponent<Ship>().health -= shooterAttackDamage;
+            collision.gameObject.GetComponent<Ship>().debrisFX.Play();
+
+            if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
+            {
+                collision.gameObject.GetComponent<Ship>().yellowFlamesFX.SetActive(true);
+                collision.gameObject.GetComponent<Ship>().orangeFlamesFX.SetActive(true);
+            }
+
             if (collision.gameObject.GetComponent<Ship>().health <= 0)
             {
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<Ship>().explosionFX.SetActive(true);
             }
+
             Destroy(gameObject);
         }
     }
