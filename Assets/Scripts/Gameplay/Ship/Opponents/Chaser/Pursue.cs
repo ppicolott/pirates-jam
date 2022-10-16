@@ -43,9 +43,28 @@ public class Pursue : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.GetComponent<Ship>().health -= ship.attackDamage;
-            collision.gameObject.GetComponent<Ship>().debrisFX.Play();
-            ship.explosionFX.SetActive(true);
+            if (collision.gameObject.GetComponent<Ship>().health > 0)
+            {
+                collision.gameObject.GetComponent<Ship>().health -= ship.attackDamage;
+                collision.gameObject.GetComponent<Ship>().debrisFX.Play();
+                ship.explosionFX.SetActive(true);
+                collision.gameObject.GetComponent<Ship>().shootExplosionFX.SetActive(true);
+            }
+            if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
+            {
+                collision.gameObject.GetComponent<Ship>().health -= ship.attackDamage;
+                collision.gameObject.GetComponent<Ship>().debrisFX.Play();
+                ship.explosionFX.SetActive(true);
+                collision.gameObject.GetComponent<Ship>().yellowFlamesFX.SetActive(true);
+                collision.gameObject.GetComponent<Ship>().orangeFlamesFX.SetActive(true);
+                collision.gameObject.GetComponent<Ship>().shootExplosionFX.SetActive(true);
+            }
+            if (collision.gameObject.GetComponent<Ship>().health <= 0)
+            {
+                collision.gameObject.GetComponent<Ship>().debrisFX.Play();
+                ship.explosionFX.SetActive(true);
+                collision.gameObject.GetComponent<Ship>().explosionFX.SetActive(true);
+            }
         }
     }
 }
