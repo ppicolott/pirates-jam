@@ -46,7 +46,7 @@ public class Ship : MonoBehaviour
         speed = 0.15f;
         leftRotation = 4f;
         rightRotation = -4f;
-        health = 90f;
+        health = Mathf.Max(0, 90f);
         attackDamage = 10f;
         attackCoolDown = 2f;
         debrisFX.Stop();

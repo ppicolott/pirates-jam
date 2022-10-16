@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationEnding : StateMachineBehaviour
+public class DeathAnimationEnding : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,6 +20,7 @@ public class AnimationEnding : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Destroy(animator.gameObject.transform.parent.gameObject.transform.parent.gameObject);
+        SessionStatus.Instance.score += 1;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
