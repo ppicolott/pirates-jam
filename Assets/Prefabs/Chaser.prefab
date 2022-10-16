@@ -93,9 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4842553786276654790}
-  - component: {fileID: 4842553786276654791}
   - component: {fileID: 4842553786276654792}
   - component: {fileID: 4842553786276654793}
+  - component: {fileID: 5893124605405611587}
   m_Layer: 0
   m_Name: Chaser
   m_TagString: Opponent
@@ -118,29 +118,8 @@ Transform:
   - {fileID: 4842553785099415997}
   - {fileID: 4695445513567219913}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &4842553786276654791
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4842553786276654794}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 5
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!60 &4842553786276654792
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -222,8 +201,27 @@ MonoBehaviour:
   health: 0
   attackDamage: 0
   attackCoolDown: 0
-  sideShotPrefab: {fileID: 6194873288509402581, guid: 1f09e48b40bf7914b8e0964afde6773d, type: 3}
-  frontShotPrefab: {fileID: 6194873288509402581, guid: 9496fb9d547d0b34383e9b63ff3945ec, type: 3}
+  sideShotPrefab: {fileID: 0}
+  frontShotPrefab: {fileID: 0}
+--- !u!114 &5893124605405611587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4842553786276654794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3363577b0ce4d004bbed03163db8cae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  lookAtTarget: {x: 0, y: 0, z: 0}
+  angle: 0
+  rotationModifier: 0
+  lookTo: {x: 0, y: 0, z: 0, w: 0}
+  lookSpeed: 0
+  chaserAttackDamage: 0
 --- !u!1 &5724656415751357722
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4695445513567219913}
   - component: {fileID: 3569247082746622597}
-  - component: {fileID: 7315217035009545816}
+  - component: {fileID: 3329318115691391421}
   m_Layer: 0
   m_Name: VisionArea
   m_TagString: Untagged
@@ -267,7 +265,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -283,7 +281,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.5, y: 6.5}
   m_EdgeRadius: 0
---- !u!114 &7315217035009545816
+--- !u!114 &3329318115691391421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,6 +290,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5724656415751357722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3363577b0ce4d004bbed03163db8cae3, type: 3}
+  m_Script: {fileID: 11500000, guid: 89c22fe204067044497559f68e54e678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

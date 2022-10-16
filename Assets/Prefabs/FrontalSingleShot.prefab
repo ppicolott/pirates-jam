@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6194873288509402601}
-  - component: {fileID: 6194873288509402600}
+  - component: {fileID: 9152418956305409142}
   - component: {fileID: 6194873288509402582}
   m_Layer: 0
   m_Name: FrontalSingleShot
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &6194873288509402600
+--- !u!50 &9152418956305409142
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -68,6 +68,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  coolDown: 0
+  playerAttackDamage: 0
+  shooterAttackDamage: 0
 --- !u!1 &6194873289357263601
 GameObject:
   m_ObjectHideFlags: 0

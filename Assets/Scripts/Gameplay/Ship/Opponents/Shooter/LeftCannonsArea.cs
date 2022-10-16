@@ -23,7 +23,10 @@ public class LeftCannonsArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        attacking = true;
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            attacking = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

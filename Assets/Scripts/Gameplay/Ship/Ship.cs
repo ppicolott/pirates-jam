@@ -20,7 +20,7 @@ public class Ship : MonoBehaviour
     public GameObject sideShotPrefab;
     public GameObject frontShotPrefab;
 
-    public void Start()
+    public void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -32,7 +32,7 @@ public class Ship : MonoBehaviour
         attackCoolDown = 2f;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (health > 60)
         {
