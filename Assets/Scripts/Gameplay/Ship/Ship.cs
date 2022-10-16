@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Ship : MonoBehaviour
 {
@@ -17,7 +15,6 @@ public class Ship : MonoBehaviour
     public float leftRotation;
     public float rightRotation;
     public float health;
-    public float damage;
     public GameObject sideShotPrefab;
     public GameObject frontShotPrefab;
 
@@ -29,7 +26,6 @@ public class Ship : MonoBehaviour
         leftRotation = 4f;
         rightRotation = -4f;
         health = 90f;
-        damage = 5f;
     }
 
     public void Update()
@@ -42,7 +38,7 @@ public class Ship : MonoBehaviour
         {
             spriteRenderer.sprite = halfHealth;
         }
-        if (health <= 30)
+        if (health <= 30 && health > 0)
         {
             spriteRenderer.sprite = lowHealth;
         }

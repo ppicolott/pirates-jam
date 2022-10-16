@@ -6,11 +6,13 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     public float reachDistance;
+    public float damage;
 
     private void Awake()
     {
         speed = 0.05f;
         reachDistance = 0.5f;
+        damage = Player.Instance.damage;
     }
 
     private void Update()
@@ -27,6 +29,15 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.name.Contains("Grid"))
         {
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag.Equals("Opponent"))
+        {
+            collision.gameObject.GetComponent<Ship>().health -= damage;
+            if (collision.gameObject.GetComponent<Ship>().health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
             Destroy(gameObject);
         }
     }

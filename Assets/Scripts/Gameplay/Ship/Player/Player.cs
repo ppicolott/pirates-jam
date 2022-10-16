@@ -5,11 +5,15 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
     public Ship ship;
+    public float damage;
 
     private void Start()
     {
+        Instance = this;
         ship = GetComponent<Ship>();
+        damage = 10f;
     }
 
     private void FixedUpdate()
