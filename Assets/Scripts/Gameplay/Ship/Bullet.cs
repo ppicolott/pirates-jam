@@ -4,10 +4,30 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private int speed;
+    public float speed;
+    public float reachDistance;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Awake()
     {
-        
+        speed = 0.05f;
+        reachDistance = 0.5f;
+    }
+
+    private void Update()
+    {
+        reachDistance -= Time.deltaTime;
+        if(reachDistance <= 0)
+        {
+            Destroy(gameObject);
+            reachDistance = 0.5f;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name.Contains("Grid"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

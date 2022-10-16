@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Ship : MonoBehaviour
 {
@@ -17,8 +18,8 @@ public class Ship : MonoBehaviour
     public float rightRotation;
     public float health;
     public float damage;
-    public GameObject sideShot;
-    public GameObject frontShot;
+    public GameObject sideShotPrefab;
+    public GameObject frontShotPrefab;
 
     public void Start()
     {
@@ -59,11 +60,19 @@ public class Ship : MonoBehaviour
 
     public void FrontalSingleShot()
     {
-
+        GameObject _frontShot = Instantiate(frontShotPrefab, transform.Find("CenterCannon").position, transform.rotation);
+        _frontShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("CenterCannon").up * _frontShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
     }
 
-    public void SideTripleShot(Vector2 _direction)
+    public void RightSideTripleShot()
     {
+        GameObject _rightSideShot = Instantiate(sideShotPrefab, transform.Find("RightCannons").position, transform.rotation);
+        _rightSideShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("RightCannons").up * _rightSideShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+    }
 
+    public void LeftSideTripleShot()
+    {
+        GameObject _leftSideShot = Instantiate(sideShotPrefab, transform.Find("LeftCannons").position, transform.rotation);
+        _leftSideShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("LeftCannons").up * _leftSideShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
     }
 }

@@ -27,4 +27,20 @@ public class Player : MonoBehaviour
             ship.Rotate(ship.leftRotation);
         }
     }
+
+    private void Update()
+    {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            ship.FrontalSingleShot();
+        }
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            ship.RightSideTripleShot();
+        }
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            ship.LeftSideTripleShot();
+        }
+    }
 }
