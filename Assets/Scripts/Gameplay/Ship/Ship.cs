@@ -33,6 +33,7 @@ public class Ship : MonoBehaviour
     [Space(5)]
     [Header("VFX - Particles and Animation")]
     [Space(5)]
+    public GameObject shootExplosionFX;
     public GameObject explosionFX;
     public GameObject yellowFlamesFX;
     public GameObject orangeFlamesFX;

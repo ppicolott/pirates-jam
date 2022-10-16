@@ -18,10 +18,7 @@ public class Pursue : MonoBehaviour
         ship.speed = 1f;
         rotationModifier = 90f;
         lookSpeed = 40f;
-        if (GameObject.Find("Chaser"))
-        {
-            chaserAttackDamage = GameObject.Find("Chaser").GetComponent<Ship>().attackDamage;
-        }
+        ship.attackDamage = 30f;
     }
 
     private void FixedUpdate()
@@ -46,19 +43,9 @@ public class Pursue : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.GetComponent<Ship>().health -= chaserAttackDamage;
+            collision.gameObject.GetComponent<Ship>().health -= ship.attackDamage;
             collision.gameObject.GetComponent<Ship>().debrisFX.Play();
-
-            if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
-            {
-                collision.gameObject.GetComponent<Ship>().yellowFlamesFX.SetActive(true);
-                collision.gameObject.GetComponent<Ship>().orangeFlamesFX.SetActive(true);
-            }
-
-            if (collision.gameObject.GetComponent<Ship>().health <= 0)
-            {
-                collision.gameObject.GetComponent<Ship>().explosionFX.SetActive(true);
-            }
+            ship.explosionFX.SetActive(true);
         }
     }
 }

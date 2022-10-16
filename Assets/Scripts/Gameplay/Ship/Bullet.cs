@@ -43,6 +43,7 @@ public class Bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Ship>().health -= playerAttackDamage;
             collision.gameObject.GetComponent<Ship>().debrisFX.Play();
+            collision.gameObject.GetComponent<Ship>().shootExplosionFX.SetActive(true);
 
             if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
             {
@@ -61,6 +62,7 @@ public class Bullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<Ship>().health -= shooterAttackDamage;
             collision.gameObject.GetComponent<Ship>().debrisFX.Play();
+            collision.gameObject.GetComponent<Ship>().shootExplosionFX.SetActive(true);
 
             if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
             {
