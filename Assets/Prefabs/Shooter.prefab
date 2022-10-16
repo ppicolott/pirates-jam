@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5565886501526665011}
   - component: {fileID: 3460572708157769385}
+  - component: {fileID: 8227358672028189369}
   m_Layer: 0
   m_Name: LeftCannons
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565886501526665010}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.2, y: 0, z: 0}
+  m_LocalPosition: {x: 0.436, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.060167074, y: 1.4526044}
+  m_Offset: {x: 0, y: 2.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,8 +57,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5299616, y: 2.976917}
+  m_Size: {x: 1.5, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &8227358672028189369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565886501526665010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0733af5d0f054499067b1079bfc13f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  attacking: 0
 --- !u!1 &5565886501656770336
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +83,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5565886501656770337}
   - component: {fileID: 5565886501656770351}
-  - component: {fileID: 1153753876763981080}
+  - component: {fileID: 4440115487982252778}
   - component: {fileID: 5565886501656770348}
   m_Layer: 0
   m_Name: Shooter
@@ -117,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &1153753876763981080
+--- !u!60 &4440115487982252778
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,31 +148,49 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 1.13}
-    newSize: {x: 0.66, y: 1.13}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.005756378, y: 0.57403886}
-      - {x: -0.15170908, y: 0.48287413}
-      - {x: -0.22088945, y: 0.3422781}
-      - {x: -0.31211513, y: 0.33779812}
-      - {x: -0.34900188, y: 0.112003714}
-      - {x: -0.33817303, y: -0.06738591}
-      - {x: -0.22447681, y: -0.10699934}
-      - {x: -0.19004595, y: -0.33686173}
-      - {x: -0.03337705, y: -0.575344}
-      - {x: 0.028131545, y: -0.57876766}
-      - {x: 0.18984252, y: -0.3799966}
-      - {x: 0.22774154, y: -0.11844289}
-      - {x: 0.35177982, y: -0.06646323}
-      - {x: 0.30751854, y: 0.34887356}
-      - {x: 0.21264678, y: 0.34814462}
-      - {x: 0.15669656, y: 0.48170415}
+    - - {x: 0.028002951, y: 0.5717864}
+      - {x: -0.02757607, y: 0.5679749}
+      - {x: -0.12983498, y: 0.4474011}
+      - {x: -0.18077745, y: 0.32441607}
+      - {x: -0.21524622, y: 0.3129263}
+      - {x: -0.22157428, y: 0.26865384}
+      - {x: -0.19865207, y: 0.23912099}
+      - {x: -0.21108818, y: 0.10220721}
+      - {x: -0.28003883, y: 0.063130364}
+      - {x: -0.33927658, y: 0.060918905}
+      - {x: -0.33538058, y: -0.11732772}
+      - {x: -0.30520928, y: -0.24463978}
+      - {x: -0.2989106, y: -0.33412528}
+      - {x: -0.25442982, y: -0.33680558}
+      - {x: -0.23900759, y: -0.3932049}
+      - {x: -0.15960614, y: -0.48356026}
+      - {x: -0.04012051, y: -0.52848375}
+      - {x: -0.036128674, y: -0.5673564}
+      - {x: 0.03573132, y: -0.5692436}
+      - {x: 0.043436076, y: -0.5323759}
+      - {x: 0.14978278, y: -0.4899959}
+      - {x: 0.20613447, y: -0.4302437}
+      - {x: 0.20860445, y: -0.4228337}
+      - {x: 0.24466549, y: -0.35240594}
+      - {x: 0.3005347, y: -0.3379258}
+      - {x: 0.2986175, y: -0.2607561}
+      - {x: 0.3248527, y: -0.17588526}
+      - {x: 0.33631906, y: 0.063361995}
+      - {x: 0.21006116, y: 0.091487244}
+      - {x: 0.20553325, y: 0.22422569}
+      - {x: 0.21923657, y: 0.25300947}
+      - {x: 0.21841277, y: 0.30840793}
+      - {x: 0.17707199, y: 0.33362156}
+      - {x: 0.1260724, y: 0.45379147}
   m_UseDelaunayMesh: 0
 --- !u!114 &5565886501656770348
 MonoBehaviour:
@@ -178,6 +211,8 @@ MonoBehaviour:
   leftRotation: 0
   rightRotation: 0
   health: 0
+  attackDamage: 0
+  attackCoolDown: 0
   sideShotPrefab: {fileID: 6194873288509402581, guid: 9496fb9d547d0b34383e9b63ff3945ec, type: 3}
   frontShotPrefab: {fileID: 6194873288509402581, guid: 1f09e48b40bf7914b8e0964afde6773d, type: 3}
 --- !u!1 &5565886501726782528
@@ -274,6 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5565886502426392085}
   - component: {fileID: 3460572708157769384}
+  - component: {fileID: 7681781608450951034}
   m_Layer: 0
   m_Name: RightCannons
   m_TagString: Untagged
@@ -289,7 +325,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565886502426392084}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.2, y: 0, z: 0}
+  m_LocalPosition: {x: -0.445, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -309,7 +345,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08595264, y: 1.435413}
+  m_Offset: {x: 0, y: 2.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -320,8 +356,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.444008, y: 3.0456789}
+  m_Size: {x: 1.5, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &7681781608450951034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565886502426392084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08291c0d54c4783428ba66d8fe0e3c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  attacking: 0
 --- !u!1 &5565886502508155640
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5565886502508155641}
   - component: {fileID: 3460572708157769387}
+  - component: {fileID: 5355203136001929977}
   m_Layer: 0
   m_Name: CenterCannon
   m_TagString: Untagged
@@ -347,7 +398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565886502508155640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.691, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -367,7 +418,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008595228, y: 1.2721031}
+  m_Offset: {x: 0, y: 2.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -378,5 +429,19 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.532908, y: 2.5127711}
+  m_Size: {x: 1.5, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &5355203136001929977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565886502508155640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be43d23b5d71e4c469b97fabc16d43a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  attacking: 0

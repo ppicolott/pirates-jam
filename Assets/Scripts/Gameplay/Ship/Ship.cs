@@ -15,6 +15,8 @@ public class Ship : MonoBehaviour
     public float leftRotation;
     public float rightRotation;
     public float health;
+    public float attackDamage;
+    public float attackCoolDown;
     public GameObject sideShotPrefab;
     public GameObject frontShotPrefab;
 
@@ -26,6 +28,8 @@ public class Ship : MonoBehaviour
         leftRotation = 4f;
         rightRotation = -4f;
         health = 90f;
+        attackDamage = 10f;
+        attackCoolDown = 2f;
     }
 
     public void Update()
@@ -56,19 +60,28 @@ public class Ship : MonoBehaviour
 
     public void FrontalSingleShot()
     {
-        GameObject _frontShot = Instantiate(frontShotPrefab, transform.Find("CenterCannon").position, transform.rotation);
-        _frontShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("CenterCannon").up * _frontShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+        if (GameObject.Find("Player") && !GameObject.Find("FrontalSingleShot(Clone)"))
+        {
+            GameObject _frontShot = Instantiate(frontShotPrefab, transform.Find("CenterCannon").position, transform.rotation);
+            _frontShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("CenterCannon").up * _frontShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+        }
     }
 
     public void RightSideTripleShot()
     {
-        GameObject _rightSideShot = Instantiate(sideShotPrefab, transform.Find("RightCannons").position, transform.rotation);
-        _rightSideShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("RightCannons").up * _rightSideShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+        if (GameObject.Find("Player") && !GameObject.Find("SideTripleShot(Clone)"))
+        {
+            GameObject _rightSideShot = Instantiate(sideShotPrefab, transform.Find("RightCannons").position, transform.rotation);
+            _rightSideShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("RightCannons").up * _rightSideShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+        }
     }
 
     public void LeftSideTripleShot()
     {
-        GameObject _leftSideShot = Instantiate(sideShotPrefab, transform.Find("LeftCannons").position, transform.rotation);
-        _leftSideShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("LeftCannons").up * _leftSideShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+        if (GameObject.Find("Player") && !GameObject.Find("SideTripleShot(Clone)"))
+        {
+            GameObject _leftSideShot = Instantiate(sideShotPrefab, transform.Find("LeftCannons").position, transform.rotation);
+            _leftSideShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("LeftCannons").up * _leftSideShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+        }
     }
 }
