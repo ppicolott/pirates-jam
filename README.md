@@ -4,10 +4,10 @@
 <br>
 Defeat all opponent's ships until the end of the gameplay session (1 or 3 minutes), while evading their attacks.<br>
 <br>
-- Mouse:<br>
+<b>- Mouse:<br></b>
   Use mouse for menus and other UI elements<br>
 <br>
-- Keyboard:<br>
+<b>- Keyboard:<br></b>
   Use keyboard to rotate and move your ship:<br>
     Press Q to rotate left or E to rotate right and point the ship to a desired direction<br>
     Alternatively:<br>
