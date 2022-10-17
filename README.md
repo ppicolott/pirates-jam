@@ -1,6 +1,6 @@
 # pirates-jam
 
-<h3>Instructions to play:<\h3>
+<h3>Instructions to play:</h3>
 
 Defeat all opponent's ships until the end of the gameplay session (1 or 3 minutes), while evading their attacks.
 
