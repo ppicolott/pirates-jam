@@ -20,6 +20,7 @@ public class Pursue : MonoBehaviour
         rotationModifier = 90f;
         lookSpeed = 40f;
         ship.attackDamage = 30f;
+        explosionSFX = GameObject.Find("ExplosionSFX").GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
