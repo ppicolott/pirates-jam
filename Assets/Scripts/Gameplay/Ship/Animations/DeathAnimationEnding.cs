@@ -20,7 +20,7 @@ public class DeathAnimationEnding : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Destroy(animator.gameObject.transform.parent.gameObject.transform.parent.gameObject);
-        SessionStatus.Instance.score += 1;
+        SessionSettings.score += 1;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

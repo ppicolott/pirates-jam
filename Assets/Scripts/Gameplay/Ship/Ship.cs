@@ -38,6 +38,10 @@ public class Ship : MonoBehaviour
     public GameObject yellowFlamesFX;
     public GameObject orangeFlamesFX;
     public ParticleSystem debrisFX;
+    [Space(5)]
+    [Header("SFX")]
+    [Space(5)]
+    public AudioSource canonSFX;
 
     public void Awake()
     {
@@ -86,6 +90,7 @@ public class Ship : MonoBehaviour
         {
             GameObject _frontShot = Instantiate(frontShotPrefab, transform.Find("CenterCannon").position, transform.rotation);
             _frontShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("CenterCannon").up * _frontShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+            canonSFX.Play();
         }
     }
 
@@ -95,6 +100,7 @@ public class Ship : MonoBehaviour
         {
             GameObject _rightSideShot = Instantiate(sideShotPrefab, transform.Find("RightCannons").position, transform.rotation);
             _rightSideShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("RightCannons").up * _rightSideShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+            canonSFX.Play();
         }
     }
 
@@ -104,6 +110,7 @@ public class Ship : MonoBehaviour
         {
             GameObject _leftSideShot = Instantiate(sideShotPrefab, transform.Find("LeftCannons").position, transform.rotation);
             _leftSideShot.GetComponent<Rigidbody2D>().AddForce(transform.Find("LeftCannons").up * _leftSideShot.GetComponent<Bullet>().speed, ForceMode2D.Force);
+            canonSFX.Play();
         }
     }
 }

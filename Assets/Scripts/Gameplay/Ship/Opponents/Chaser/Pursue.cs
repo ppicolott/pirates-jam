@@ -11,6 +11,7 @@ public class Pursue : MonoBehaviour
     public float rotationModifier;
     public float lookSpeed;
     public float chaserAttackDamage;
+    public AudioSource explosionSFX;
 
     private void Start()
     {
@@ -49,6 +50,7 @@ public class Pursue : MonoBehaviour
                 collision.gameObject.GetComponent<Ship>().debrisFX.Play();
                 ship.explosionFX.SetActive(true);
                 collision.gameObject.GetComponent<Ship>().shootExplosionFX.SetActive(true);
+                explosionSFX.Play();
             }
             if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
             {
@@ -58,12 +60,14 @@ public class Pursue : MonoBehaviour
                 collision.gameObject.GetComponent<Ship>().yellowFlamesFX.SetActive(true);
                 collision.gameObject.GetComponent<Ship>().orangeFlamesFX.SetActive(true);
                 collision.gameObject.GetComponent<Ship>().shootExplosionFX.SetActive(true);
+                explosionSFX.Play();
             }
             if (collision.gameObject.GetComponent<Ship>().health <= 0)
             {
                 collision.gameObject.GetComponent<Ship>().debrisFX.Play();
                 ship.explosionFX.SetActive(true);
                 collision.gameObject.GetComponent<Ship>().explosionFX.SetActive(true);
+                explosionSFX.Play();
             }
         }
     }

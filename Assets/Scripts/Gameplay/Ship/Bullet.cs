@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float coolDown;
     public float playerAttackDamage;
     public float shooterAttackDamage;
+    public AudioSource explosionSFX;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class Bullet : MonoBehaviour
         {
             shooterAttackDamage = GameObject.Find("Shooter").GetComponent<Ship>().attackDamage;
         }
+        explosionSFX = GameObject.Find("ExplosionSFX").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -47,17 +49,20 @@ public class Bullet : MonoBehaviour
                 collision.gameObject.GetComponent<Ship>().health -= playerAttackDamage;
                 collision.gameObject.GetComponent<Ship>().debrisFX.Play();
                 collision.gameObject.GetComponent<Ship>().shootExplosionFX.SetActive(true);
+                explosionSFX.Play();
             }
 
             if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
             {
                 collision.gameObject.GetComponent<Ship>().yellowFlamesFX.SetActive(true);
                 collision.gameObject.GetComponent<Ship>().orangeFlamesFX.SetActive(true);
+                explosionSFX.Play();
             }
 
             if (collision.gameObject.GetComponent<Ship>().health <= 0)
             {
                 collision.gameObject.GetComponent<Ship>().explosionFX.SetActive(true);
+                explosionSFX.Play();
             }
 
             Destroy(gameObject);
@@ -70,17 +75,20 @@ public class Bullet : MonoBehaviour
                 collision.gameObject.GetComponent<Ship>().health -= shooterAttackDamage;
                 collision.gameObject.GetComponent<Ship>().debrisFX.Play();
                 collision.gameObject.GetComponent<Ship>().shootExplosionFX.SetActive(true);
+                explosionSFX.Play();
             }
 
             if (collision.gameObject.GetComponent<Ship>().health > 30 && collision.gameObject.GetComponent<Ship>().health <= 60)
             {
                 collision.gameObject.GetComponent<Ship>().yellowFlamesFX.SetActive(true);
                 collision.gameObject.GetComponent<Ship>().orangeFlamesFX.SetActive(true);
+                explosionSFX.Play();
             }
 
             if (collision.gameObject.GetComponent<Ship>().health <= 0)
             {
                 collision.gameObject.GetComponent<Ship>().explosionFX.SetActive(true);
+                explosionSFX.Play();
             }
 
             Destroy(gameObject);
