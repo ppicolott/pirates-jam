@@ -7,25 +7,13 @@ using UnityEngine.UI;
 public class OptionMenu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mainMenuCanvas;
-    [SerializeField]
-    private GameObject optionsMenuCanvas;
+    private GameObject mainMenuCanvas, optionsMenuCanvas;
 
     [SerializeField]
-    private Button increaseSessionTime;
-    [SerializeField]
-    private Button decreaseSessionTime;
-    [SerializeField]
-    private Button increaseSpawnTime;
-    [SerializeField]
-    private Button decreaseSpawnTime;
-    [SerializeField]
-    private Button mainMenuButton;
+    private Button increaseSessionTime, decreaseSessionTime, increaseSpawnTime, decreaseSpawnTime, mainMenuButton;
 
     [SerializeField]
-    private TMP_Text sessionTimeText;
-    [SerializeField]
-    private TMP_Text spawnTimeText;
+    private TMP_Text sessionTimeText, spawnTimeText;
 
     private void Awake()
     {

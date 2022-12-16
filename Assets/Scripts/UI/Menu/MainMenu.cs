@@ -7,15 +7,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
-    private Button newGameButton;
+    private Button newGameButton, optionsButton, exitButton;
     [SerializeField]
-    private Button optionsButton;
-    [SerializeField]
-    private Button exitButton;
-    [SerializeField]
-    private GameObject mainMenuCanvas;
-    [SerializeField]
-    private GameObject optionsMenuCanvas;
+    private GameObject mainMenuCanvas, optionsMenuCanvas;
 
     private void Awake()
     {
