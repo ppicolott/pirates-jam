@@ -6,16 +6,28 @@ using UnityEngine.UI;
 
 public class OptionMenu : MonoBehaviour
 {
-    public GameObject mainMenuCanvas;
-    public GameObject optionsMenuCanvas;
-    public TMP_Text sessionTimeText;
-    public TMP_Text spawnTimeText;
-    public Button increaseSessionTime;
-    public Button decreaseSessionTime;
-    public Button increaseSpawnTime;
-    public Button decreaseSpawnTime;
+    [SerializeField]
+    private GameObject mainMenuCanvas;
+    [SerializeField]
+    private GameObject optionsMenuCanvas;
 
-    private void Start()
+    [SerializeField]
+    private Button increaseSessionTime;
+    [SerializeField]
+    private Button decreaseSessionTime;
+    [SerializeField]
+    private Button increaseSpawnTime;
+    [SerializeField]
+    private Button decreaseSpawnTime;
+    [SerializeField]
+    private Button mainMenuButton;
+
+    [SerializeField]
+    private TMP_Text sessionTimeText;
+    [SerializeField]
+    private TMP_Text spawnTimeText;
+
+    private void Awake()
     {
         if(SessionSettings.sessionTime == 180f)
         {
@@ -26,9 +38,15 @@ public class OptionMenu : MonoBehaviour
             sessionTimeText.text = "1 minute";
         }
         spawnTimeText.text = SessionSettings.spawnTime.ToString() + " seconds";
+
+        increaseSessionTime.onClick.AddListener(IncreaseSessionTime);
+        decreaseSessionTime.onClick.AddListener(DecreaseSessionTime);
+        increaseSpawnTime.onClick.AddListener(IncreaseSpawnTime);
+        decreaseSpawnTime.onClick.AddListener(DecreaseSpawnTime);
+        mainMenuButton.onClick.AddListener(MainMenu);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (SessionSettings.sessionTime == 180f)
         {
@@ -72,18 +90,46 @@ public class OptionMenu : MonoBehaviour
 
     public void IncreaseSpawnTime()
     {
-        if (SessionSettings.spawnTime >= 10f && SessionSettings.spawnTime < 60f)
+        switch (SessionSettings.spawnTime)
         {
-            SessionSettings.spawnTime += 10f;
+            case 10f:
+                SessionSettings.spawnTime = 20f;
+                break;
+            case 20f:
+                SessionSettings.spawnTime = 30f;
+                break;
+            case 30f:
+                SessionSettings.spawnTime = 40f;
+                break;
+            case 40f:
+                SessionSettings.spawnTime = 50f;
+                break;
+            case 50f:
+                SessionSettings.spawnTime = 60f;
+                break;
         }
         spawnTimeText.text = SessionSettings.spawnTime.ToString() + " seconds";
     }
 
     public void DecreaseSpawnTime()
     {
-        if (SessionSettings.spawnTime <= 60f && SessionSettings.spawnTime > 10f)
+        switch (SessionSettings.spawnTime)
         {
-            SessionSettings.spawnTime -= 10f;
+            case 60f:
+                SessionSettings.spawnTime = 50f;
+                break;
+            case 50f:
+                SessionSettings.spawnTime = 40f;
+                break;
+            case 40f:
+                SessionSettings.spawnTime = 30f;
+                break;
+            case 30f:
+                SessionSettings.spawnTime = 20f;
+                break;
+            case 20f:
+                SessionSettings.spawnTime = 10f;
+                break;
         }
         spawnTimeText.text = SessionSettings.spawnTime.ToString() + " seconds";
     }
